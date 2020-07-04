@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane prefHeight="50.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="ALWAYS" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="374.0" minHeight="10.0" prefHeight="374.0" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="376.0" minHeight="10.0" prefHeight="19.0" vgrow="ALWAYS" />
+  </rowConstraints>
+   <children>
+      <Text fx:id="errorMsgText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="{ERROR_MSG}" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <TextField fx:id="textField" />
+   </children>
+</GridPane>
