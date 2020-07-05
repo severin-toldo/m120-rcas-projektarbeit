@@ -3,7 +3,7 @@ package com.stoldo.m120_rcas_projektarbeit.model.validators;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import com.stoldo.m120_rcas_projektarbeit.model.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.util.ResourceKey;
 
 import lombok.AllArgsConstructor;
 

@@ -1,5 +1,6 @@
-package com.stoldo.m120_rcas_projektarbeit.model;
+package com.stoldo.m120_rcas_projektarbeit.util;
 
+import lombok.Getter;
 
 public enum ResourceKey {
 	
@@ -8,16 +9,13 @@ public enum ResourceKey {
 	X_AXIS_LABLE("xAxisLabel"),
 	Y_AXIS_LABLE("yAxisLabel"),
 	REQUIRED_ERROR_MSG("requiredErrorMsg"),
-	MIN_MAX_ERROR_MSG("minMaxErroMsg");
+	MIN_MAX_ERROR_MSG("minMaxErroMsg"),
+	UPLOAD_IMAGE("uploadImage");
 	
-	
+	@Getter
 	private String key;
 	
 	private ResourceKey(String key) {
 		this.key = key;
-	}
-	
-	public String getKey() {
-		return key;
 	}
 }

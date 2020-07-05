@@ -7,12 +7,18 @@ import com.stoldo.m120_rcas_projektarbeit.util.JavaFxUtils;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import lombok.Getter;
+import lombok.Setter;
 
 public abstract class AbstractController {
 	
 	@Getter
 	private Pane pane;
+	
+	@Getter
+	@Setter
+	private Stage stage;
 	
 	@FXML
 	public abstract void initialize() throws Exception;
