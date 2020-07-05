@@ -8,12 +8,12 @@ import org.apache.commons.lang3.StringUtils;
 import com.stoldo.m120_rcas_projektarbeit.model.VoidCallable;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.Validator;
+import com.stoldo.m120_rcas_projektarbeit.util.JavaFxUtils;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
@@ -32,38 +32,23 @@ public abstract class InputField<T> extends AbstractController {
 	@Setter
 	private VoidCallable onFocus;
 	
-	@Setter 
-	@Getter
-	private T value;
-	
-	@Setter 
-	@Getter
-	private String id;
-	
-	@Setter 
-	@Getter
-	private Pos alignment;
-	
-	@Setter 
-	@Getter
-	private String promptText;
-	
+	@Setter
+	private VoidCallable onChange;
 	
 	private String errorMsg;
-	private List<Validator> validators = new ArrayList<>();
+	private List<Validator> validators;
+	private boolean initialized;
 	
+	
+	public InputField() {
+		validators = new ArrayList<>();
+	}
 	
 	@Override
 	public void initialize() throws Exception {
-		System.out.println("Hello");
-		validators = new ArrayList<>();
-		value = value == null ? getDefaultValue() : value;
 		errorMsgText.setVisible(false);
 		
-		textField.setId(id);
-		textField.setAlignment(alignment);
-		textField.setPromptText(promptText);
-		textField.setText(value.toString());
+		textField.setPrefSize(TextField.USE_COMPUTED_SIZE, TextField.USE_COMPUTED_SIZE);
 		textField.focusedProperty().addListener((obs, oldVal, newVal) -> {
 			try {
 				if (newVal) {
@@ -75,6 +60,16 @@ public abstract class InputField<T> extends AbstractController {
 				throw new RuntimeException(e);
 			}
 		});
+		
+		textField.textProperty().addListener((observable, oldValue, newValue) -> {
+			try {
+				onChange();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}	
+		});
+		
+		initialized = true;
 	}
 	
 	@Override
@@ -101,13 +96,13 @@ public abstract class InputField<T> extends AbstractController {
 	
 	public abstract T getDefaultValue();
 	
-	private boolean isValid() {
+	public boolean isValid() {
 		String value = textField.getText();
 		value = StringUtils.trim(value);
 		
 		for (Validator v : validators) {
 			if (!v.validate(value)) {
-				errorMsg = v.getErrorMsg();
+				errorMsg = v.getErrorMsg(JavaFxUtils.getResourceBundle());
 				return false;
 			}
 		}
@@ -127,5 +122,46 @@ public abstract class InputField<T> extends AbstractController {
 		if (onFocus != null) {
 			onFocus.call();		
 		}
+	}
+	
+	private void onChange() throws Exception {
+		if (initialized && onChange != null) {
+			onChange.call();
+		}
+	}
+
+	public abstract T getValue();
+	
+	public InputField<T> setValue(T value) {
+		value = value == null ? getDefaultValue() : value;
+		textField.setText(value.toString());
+		return this;
+	}
+
+	public String getId() {
+		return textField.getId();
+	}
+
+	public InputField<T> setId(String id) {
+		textField.setId(id);
+		return this;
+	}
+
+	public Pos getAlignment() {
+		return textField.getAlignment();
+	}
+	
+	public InputField<T> setAlignment(Pos alignment) {
+		textField.setAlignment(alignment);
+		return this;
+	}
+
+	public String getPromptText() {
+		return textField.getPromptText();
+	}
+	
+	public InputField<T> setPromptText(String promptText) {
+		textField.setPromptText(promptText);
+		return this;
 	}
 }

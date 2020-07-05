@@ -6,4 +6,9 @@ public class TextInputField extends InputField<String> {
 	public String getDefaultValue() {
 		return "";
 	}
+
+	@Override
+	public String getValue() {
+		return textField.getText();
+	}
 }

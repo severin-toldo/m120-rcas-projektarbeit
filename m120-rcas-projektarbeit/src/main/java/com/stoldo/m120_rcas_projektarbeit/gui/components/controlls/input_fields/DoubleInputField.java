@@ -3,6 +3,8 @@ package com.stoldo.m120_rcas_projektarbeit.gui.components.controlls.input_fields
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
+
 import javafx.scene.control.TextFormatter;
 import javafx.util.StringConverter;
 
@@ -51,5 +53,10 @@ public class DoubleInputField extends InputField<Double> {
 	@Override
 	public Double getDefaultValue() {
 		return 0.0;
+	}
+
+	@Override
+	public Double getValue() {
+		return StringUtils.isNotEmpty(textField.getText()) ? Double.valueOf(textField.getText()) : getDefaultValue();
 	}
 }

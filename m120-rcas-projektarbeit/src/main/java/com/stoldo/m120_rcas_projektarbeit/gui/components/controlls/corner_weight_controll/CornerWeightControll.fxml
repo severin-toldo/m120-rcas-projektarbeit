@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="71.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="398.0" minWidth="10.0" prefWidth="397.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="274.0" minWidth="10.0" prefWidth="117.0" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="114.0" minWidth="10.0" prefWidth="23.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="357.0" minHeight="10.0" prefHeight="17.0" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="367.0" minHeight="10.0" prefHeight="54.0" vgrow="ALWAYS" />
+  </rowConstraints>
+   <children>
+      <Slider fx:id="slider" majorTickUnit="100.0" max="1300.0" min="100.0" prefHeight="25.0" prefWidth="194.0" showTickLabels="true" showTickMarks="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets right="10.0" top="20.0" />
+         </GridPane.margin>
+      </Slider>
+      <Text fx:id="unitText" strokeType="OUTSIDE" strokeWidth="0.0" text="kg" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin>
+      </Text>
+      <Label fx:id="label" text="{LABEL}" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+   </children>
+</GridPane>

@@ -14,7 +14,10 @@
     <RowConstraints maxHeight="376.0" minHeight="10.0" prefHeight="19.0" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <Text fx:id="errorMsgText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="{ERROR_MSG}" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Text fx:id="errorMsgText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="{ERROR_MSG}" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <font>
+            <Font size="9.0" />
+         </font></Text>
       <TextField fx:id="textField" />
    </children>
 </GridPane>

@@ -1,6 +1,10 @@
 package com.stoldo.m120_rcas_projektarbeit.model.validators;
 
+import java.util.ResourceBundle;
+
 import org.apache.commons.lang3.StringUtils;
+
+import com.stoldo.m120_rcas_projektarbeit.model.ResourceKey;
 
 public class RequiredValidator implements Validator {
 
@@ -10,7 +14,7 @@ public class RequiredValidator implements Validator {
 	}
 
 	@Override
-	public String getErrorMsg() {
-		return "This Field is required.";
+	public String getErrorMsg(ResourceBundle resourceBundle) {
+		return resourceBundle.getString(ResourceKey.REQUIRED_ERROR_MSG.getKey());
 	}
 }

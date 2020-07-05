@@ -14,18 +14,19 @@ public abstract class AbstractController {
 	@Getter
 	private Pane pane;
 	
-	public AbstractController() {
-		try {
-			pane = JavaFxUtils.load(this);
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
 	@FXML
 	public abstract void initialize() throws Exception;
 	
 	public String getFxmlFileName() {
 		return StringUtils.replace(getClass().getSimpleName(), "Controller", ".fxml");
+	}
+	
+	public AbstractController load() {
+		try {
+			pane = JavaFxUtils.load(this);
+			return this;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 }
