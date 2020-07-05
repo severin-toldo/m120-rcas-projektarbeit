@@ -10,11 +10,14 @@ import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.Validator;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+@Accessors(fluent = true)
 public abstract class InputField<T> extends AbstractController {
 	
 	@FXML
@@ -24,16 +27,27 @@ public abstract class InputField<T> extends AbstractController {
 	private Text errorMsgText;
 	
 	@Setter
-	@Accessors(fluent = true)
 	private VoidCallable onBlur;
 	
 	@Setter
-	@Accessors(fluent = true)
 	private VoidCallable onFocus;
 	
 	@Setter 
-	@Accessors(fluent = true)
+	@Getter
 	private T value;
+	
+	@Setter 
+	@Getter
+	private String id;
+	
+	@Setter 
+	@Getter
+	private Pos alignment;
+	
+	@Setter 
+	@Getter
+	private String promptText;
+	
 	
 	private String errorMsg;
 	private List<Validator> validators = new ArrayList<>();
@@ -41,10 +55,14 @@ public abstract class InputField<T> extends AbstractController {
 	
 	@Override
 	public void initialize() throws Exception {
+		System.out.println("Hello");
 		validators = new ArrayList<>();
 		value = value == null ? getDefaultValue() : value;
 		errorMsgText.setVisible(false);
 		
+		textField.setId(id);
+		textField.setAlignment(alignment);
+		textField.setPromptText(promptText);
 		textField.setText(value.toString());
 		textField.focusedProperty().addListener((obs, oldVal, newVal) -> {
 			try {
@@ -76,9 +94,12 @@ public abstract class InputField<T> extends AbstractController {
 		}
 	}
 	
-	public T getValue() {
-		return value;
+	public InputField<T> addValidator(Validator validator) {
+		validators.add(validator);
+		return this;
 	}
+	
+	public abstract T getDefaultValue();
 	
 	private boolean isValid() {
 		String value = textField.getText();
@@ -94,8 +115,6 @@ public abstract class InputField<T> extends AbstractController {
 		return true;
 	}
 	
-	public abstract T getDefaultValue();
-	
 	private void onBlur() throws Exception {
 		validate();
 		
@@ -108,10 +127,5 @@ public abstract class InputField<T> extends AbstractController {
 		if (onFocus != null) {
 			onFocus.call();		
 		}
-	}
-	
-	public InputField<T> addValidator(Validator validator) {
-		validators.add(validator);
-		return this;
 	}
 }
