@@ -1,9 +1,11 @@
 package com.stoldo.m120_rcas_projektarbeit.gui.components.mmm_diagram;
 
 import java.util.Iterator;
+
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.model.rcas.RaceCar;
-import com.stoldo.m120_rcas_projektarbeit.util.CorneringAnalyserUtil;
+import com.stoldo.m120_rcas_projektarbeit.shared.util.CorneringAnalyserUtil;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;

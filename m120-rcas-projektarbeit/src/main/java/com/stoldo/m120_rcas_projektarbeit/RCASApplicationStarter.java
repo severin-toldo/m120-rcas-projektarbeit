@@ -2,8 +2,8 @@ package com.stoldo.m120_rcas_projektarbeit;
 
 import com.stoldo.m120_rcas_projektarbeit.gui.pages.race_cars_overview.TestController;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
-import com.stoldo.m120_rcas_projektarbeit.util.JavaFxUtils;
-import com.stoldo.m120_rcas_projektarbeit.util.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.constants.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

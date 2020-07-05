@@ -3,7 +3,7 @@ package com.stoldo.m120_rcas_projektarbeit.model.javafx;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.stoldo.m120_rcas_projektarbeit.util.JavaFxUtils;
+import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;

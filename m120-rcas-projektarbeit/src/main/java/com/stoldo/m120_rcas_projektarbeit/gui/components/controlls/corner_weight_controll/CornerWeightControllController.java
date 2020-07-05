@@ -7,7 +7,7 @@ import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.DebounceTime;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.DoubleMinMaxValidator;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.RequiredValidator;
-import com.stoldo.m120_rcas_projektarbeit.util.CommonUtils;
+import com.stoldo.m120_rcas_projektarbeit.shared.util.CommonUtils;
 
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;

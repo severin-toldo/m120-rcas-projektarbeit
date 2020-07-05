@@ -1,4 +1,4 @@
-package com.stoldo.m120_rcas_projektarbeit.util;
+package com.stoldo.m120_rcas_projektarbeit.shared.constants;
 
 import lombok.Getter;
 

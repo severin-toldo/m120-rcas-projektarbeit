@@ -4,8 +4,8 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
-import com.stoldo.m120_rcas_projektarbeit.util.IconKey;
-import com.stoldo.m120_rcas_projektarbeit.util.JavaFxUtils;
+import com.stoldo.m120_rcas_projektarbeit.shared.constants.IconKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;

@@ -4,7 +4,7 @@ import java.util.ResourceBundle;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.stoldo.m120_rcas_projektarbeit.util.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.constants.ResourceKey;
 
 public class RequiredValidator implements Validator {
 
