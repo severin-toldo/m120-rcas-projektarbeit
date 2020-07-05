@@ -102,7 +102,7 @@ public abstract class InputField<T> extends AbstractController {
 		
 		for (Validator v : validators) {
 			if (!v.validate(value)) {
-				errorMsg = v.getErrorMsg(JavaFxUtils.getResourceBundle());
+				errorMsg = v.getErrorMsg(JavaFxUtils.getResourceBundle()); // TODO resource bundle via @FXML
 				return false;
 			}
 		}

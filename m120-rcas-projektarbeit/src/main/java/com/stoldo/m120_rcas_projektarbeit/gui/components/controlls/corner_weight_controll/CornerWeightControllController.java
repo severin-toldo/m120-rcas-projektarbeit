@@ -119,6 +119,8 @@ public class CornerWeightControllController extends AbstractController {
 	}
 	
 	private void onChange() throws Exception {
-		onChange.call();
+		if (onChange != null) {
+			onChange.call();	
+		}
 	}
 }
