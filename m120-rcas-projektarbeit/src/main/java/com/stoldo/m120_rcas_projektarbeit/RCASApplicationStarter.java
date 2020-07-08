@@ -1,8 +1,11 @@
 package com.stoldo.m120_rcas_projektarbeit;
 
+import com.stoldo.m120_rcas_projektarbeit.gui.pages.race_car_view.AddRaceCarViewController;
+import com.stoldo.m120_rcas_projektarbeit.gui.pages.race_car_view.EditRaceCarViewController;
 import com.stoldo.m120_rcas_projektarbeit.gui.pages.race_cars_overview.TestController;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.shared.constants.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.util.CommonUtils;
 import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
 import javafx.application.Application;
@@ -21,8 +24,8 @@ public class RCASApplicationStarter extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		AbstractController mainController = new TestController();
-		mainController.setStage(primaryStage);
 		mainController.load();
+		mainController.setStage(primaryStage);
 		
 		Pane mainPane = mainController.getPane();
 		

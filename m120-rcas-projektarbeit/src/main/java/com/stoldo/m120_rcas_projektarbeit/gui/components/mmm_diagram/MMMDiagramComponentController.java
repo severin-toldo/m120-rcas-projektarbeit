@@ -10,8 +10,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart.Series;
+import javafx.scene.layout.GridPane;
+
 
 public class MMMDiagramComponentController extends AbstractController {
+	
+	@FXML
+	private GridPane gridPane;
 	
 	@FXML
 	private LineChart<Number, Number> mainChart;
@@ -24,9 +29,13 @@ public class MMMDiagramComponentController extends AbstractController {
 	
 	@Override
 	public void initialize() throws Exception {
+		refresh(raceCar);
+	}
+	
+	public void refresh(RaceCar raceCar) {
 		printMMMDiagramValues(raceCar);
 		ObservableList<Series<Number, Number>> dataList = CorneringAnalyserUtil.generateMMMChartData(raceCar);
-		mainChart.getData().addAll(dataList);
+		mainChart.setData(dataList);
 		setSeriesStyle(dataList, ".chart-series-line", "-fx-stroke: blue; -fx-stroke-width: 1px;");
 	}
 	

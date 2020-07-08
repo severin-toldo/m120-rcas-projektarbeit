@@ -5,6 +5,7 @@ import com.stoldo.m120_rcas_projektarbeit.gui.components.controlls.input_fields.
 import com.stoldo.m120_rcas_projektarbeit.model.VoidCallable;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.DebounceTime;
+import com.stoldo.m120_rcas_projektarbeit.model.javafx.ValueHolder;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.DoubleMinMaxValidator;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.RequiredValidator;
 import com.stoldo.m120_rcas_projektarbeit.shared.util.CommonUtils;
@@ -26,7 +27,8 @@ import lombok.experimental.Accessors;
  * Could be abstracted even more, since it consist of multiple parts. 
  * Since it is used only for corner weight in this project, it wasn't.
  * */
-public class CornerWeightControllController extends AbstractController {
+@Accessors(fluent = true)
+public class CornerWeightControllController extends AbstractController implements ValueHolder<Double> {
 	
 	@FXML
 	private GridPane gridPane;
@@ -47,13 +49,13 @@ public class CornerWeightControllController extends AbstractController {
 	private DoubleInputField valueField = new DoubleInputField();
 	
 	private String labelValue;
-	private double sliderValue;
+	private double sliderStartValue;
 	private boolean initialized;
 	
 	
-	public CornerWeightControllController(String labelValue, double sliderValue) {
+	public CornerWeightControllController(String labelValue, double sliderStartValue) {
 		this.labelValue = labelValue;
-		this.sliderValue = sliderValue;
+		this.sliderStartValue = sliderStartValue;
 	}
 
 	@Override
@@ -61,7 +63,7 @@ public class CornerWeightControllController extends AbstractController {
 		label.setText(labelValue);
 		PauseTransition debounceTime = DebounceTime.get(500);
 		
-		slider.setValue(sliderValue);
+		slider.setValue(sliderStartValue);
 		slider.valueProperty().addListener((observable, oldValue, newValue) -> {
 			if (initialized) {
 				DebounceTime.withDebounceTime(() -> onSliderChanged(), debounceTime);
@@ -74,7 +76,7 @@ public class CornerWeightControllController extends AbstractController {
 		.addValidator(new DoubleMinMaxValidator(100.00, 1300.00))
 		.setAlignment(Pos.CENTER_RIGHT)
 		.setPromptText("100.25")
-		.setValue(sliderValue)
+		.setValue(sliderStartValue)
 		.onChange(() -> {
 			DebounceTime.withDebounceTime(() -> onValueFieldChanged(), debounceTime);
 		});
@@ -85,10 +87,6 @@ public class CornerWeightControllController extends AbstractController {
 		GridPane.setMargin(valueField.getPane(), new Insets(10.00, 0.0, 0.0, 0.0));
 		
 		initialized = true;
-	}
-	
-	public double getValue() {
-		return valueField.getValue();
 	}
 	
 	private void onSliderChanged() throws Exception {
@@ -122,5 +120,20 @@ public class CornerWeightControllController extends AbstractController {
 		if (onChange != null) {
 			onChange.call();	
 		}
+	}
+	
+	@Override
+	public Double getValue() {
+		return valueField.getValue();
+	}
+
+	@Override
+	public boolean isValid() {
+		return valueField.isValid();
+	}
+
+	@Override
+	public void validate() {
+		valueField.validate();
 	}
 }

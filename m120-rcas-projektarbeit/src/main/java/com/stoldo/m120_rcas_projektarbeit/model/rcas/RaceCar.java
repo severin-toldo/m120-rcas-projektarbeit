@@ -2,6 +2,7 @@ package com.stoldo.m120_rcas_projektarbeit.model.rcas;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -13,19 +14,21 @@ import javafx.beans.property.StringProperty;
  */
 public class RaceCar {
 
-	private static String DEFAULT_NAME = "Race Car";
+	private static String DEFAULT_NAME = "";
 	private static double DEFAULT_TRACK = 1.6;
 	private static double DEFAULT_WHEELBASE = 2.6;
 	private static double DEFAULT_COGHEIGHT = 0.5;
 	private static double DEFAULT_FRONTROLLDIST = 0.5;
 
 	
+	private SimpleIntegerProperty id = new SimpleIntegerProperty();
 	private SimpleStringProperty name = new SimpleStringProperty(DEFAULT_NAME); // the name of the car.
 	private SimpleDoubleProperty frontTrack = new SimpleDoubleProperty(DEFAULT_TRACK); // front track width of the car in m.
 	private SimpleDoubleProperty rearTrack = new SimpleDoubleProperty(DEFAULT_TRACK); // rear track width of the car in m.
 	private SimpleDoubleProperty wheelbase = new SimpleDoubleProperty(DEFAULT_WHEELBASE); // wheelbase of the car in m.
 	private SimpleDoubleProperty cogHeight = new SimpleDoubleProperty(DEFAULT_COGHEIGHT); // center of gravity (cog) height in m.
 	private SimpleDoubleProperty frontRollDist = new SimpleDoubleProperty(DEFAULT_FRONTROLLDIST); // center of gravity (cog) height in m.
+	private SimpleStringProperty imageFileName = new SimpleStringProperty("");
 	private SimpleDoubleProperty cornerWeightFL; // front left corner weight in kg.
 	private SimpleDoubleProperty cornerWeightFR; // front right corner weight in kg.
 	private SimpleDoubleProperty cornerWeightRL; // rear left corner weight in kg.
@@ -54,7 +57,9 @@ public class RaceCar {
 	 * @param cornerWeightRR
 	 *            - Rear Right corner weight in kg.
 	 */
-	public RaceCar(double cornerWeightFL, double cornerWeightFR, double cornerWeightRL, double cornerWeightRR) {
+	public RaceCar(Integer id, String name, double cornerWeightFL, double cornerWeightFR, double cornerWeightRL, double cornerWeightRR) {
+		this.id = new SimpleIntegerProperty(id);
+		this.name = new SimpleStringProperty(name);
 		this.cornerWeightFL = new SimpleDoubleProperty(cornerWeightFL);
 		this.cornerWeightFR = new SimpleDoubleProperty(cornerWeightFR);
 		this.cornerWeightRL = new SimpleDoubleProperty(cornerWeightRL);
@@ -318,7 +323,23 @@ public class RaceCar {
 	public void setRearAxleTireModel(TireModel rearAxleTireModel) {
 		this.rearAxleTireModel = rearAxleTireModel;
 	}
+	
+	public String getImageFileName() {
+		return this.imageFileName.get();
+	}
 
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName.set(imageFileName);	
+	}
+
+	public Integer getId() {
+		return this.id.get();
+	}
+
+	public void setId(Integer id) {
+		this.id.set(id);	
+	}
+	
 	@Override
 	public String toString() {
 		return String.format(

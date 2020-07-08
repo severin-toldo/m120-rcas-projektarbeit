@@ -2,11 +2,13 @@ package com.stoldo.m120_rcas_projektarbeit.gui.components.controlls.input_fields
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.stoldo.m120_rcas_projektarbeit.model.VoidCallable;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
+import com.stoldo.m120_rcas_projektarbeit.model.javafx.ValueHolder;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.Validator;
 import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
@@ -18,7 +20,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Accessors(fluent = true)
-public abstract class InputField<T> extends AbstractController {
+public abstract class InputField<T> extends AbstractController implements ValueHolder<T> {
 	
 	@FXML
 	protected TextField textField;
@@ -37,11 +39,13 @@ public abstract class InputField<T> extends AbstractController {
 	
 	private String errorMsg;
 	private List<Validator> validators;
+	private List<String> styles;
 	private boolean initialized;
 	
 	
 	public InputField() {
 		validators = new ArrayList<>();
+		styles = new ArrayList<>();
 	}
 	
 	@Override
@@ -78,14 +82,17 @@ public abstract class InputField<T> extends AbstractController {
 	}
 	
 	// doing it via stylesheet doesn't work in this case. JavaFx bug
+	@Override
 	public void validate() {
 		if (isValid()) {
 			errorMsgText.setVisible(false);
-			textField.setStyle("");
+			removeStyle("-fx-text-box-border: red");
+			removeStyle("-fx-focus-color: red");
 		} else {
 			errorMsgText.setText(errorMsg);
 			errorMsgText.setVisible(true);
-			textField.setStyle("-fx-text-box-border: red;-fx-focus-color: red;");
+			addStyle("-fx-text-box-border: red");
+			addStyle("-fx-focus-color: red");
 		}
 	}
 	
@@ -96,6 +103,7 @@ public abstract class InputField<T> extends AbstractController {
 	
 	public abstract T getDefaultValue();
 	
+	@Override
 	public boolean isValid() {
 		String value = textField.getText();
 		value = StringUtils.trim(value);
@@ -119,18 +127,20 @@ public abstract class InputField<T> extends AbstractController {
 	}
 	
 	private void onFocus() throws Exception {
+		validate();
+		
 		if (onFocus != null) {
 			onFocus.call();		
 		}
 	}
 	
 	private void onChange() throws Exception {
+		validate();
+		
 		if (initialized && onChange != null) {
 			onChange.call();
 		}
 	}
-
-	public abstract T getValue();
 	
 	public InputField<T> setValue(T value) {
 		value = value == null ? getDefaultValue() : value;
@@ -163,5 +173,23 @@ public abstract class InputField<T> extends AbstractController {
 	public InputField<T> setPromptText(String promptText) {
 		textField.setPromptText(promptText);
 		return this;
+	}
+	
+	public InputField<T> setFontSize(int fontSize) {
+		addStyle("-fx-font-size:" + fontSize);
+		return this;
+	}
+	
+	private void addStyle(String style) {
+		if (!styles.contains(style)) {
+			styles.add(style);	
+		}
+		
+		textField.setStyle(styles.stream().collect(Collectors.joining(";")));
+	}
+	
+	private void removeStyle(String style) {
+		styles.remove(style);
+		textField.setStyle(styles.stream().collect(Collectors.joining(";")));
 	}
 }

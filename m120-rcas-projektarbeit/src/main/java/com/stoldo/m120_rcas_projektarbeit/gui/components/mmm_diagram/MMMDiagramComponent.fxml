@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -10,24 +14,25 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:id="mainPane" alignment="CENTER" hgap="15.0"
-	maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-	minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="15.0"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@MMMDiagramComponentStyle.css">
+<GridPane fx:id="gridPane" alignment="CENTER" hgap="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="559.0" stylesheets="@MMMDiagramComponentStyle.css" vgap="15.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 	<padding>
 		<Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
 	</padding>
 	<children>
-		<LineChart fx:id="mainChart" id="mainChart" title="%mmmChartTitle"
-			prefWidth="600" prefHeight="600" GridPane.columnIndex="0"
-			GridPane.rowIndex="0" GridPane.columnSpan="2" animated="false"
-			createSymbols="false" legendVisible="false">
+		<LineChart id="mainChart" fx:id="mainChart" animated="false" createSymbols="false" legendVisible="false" prefHeight="600" prefWidth="600" title="%mmmChartTitle" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
 			<xAxis>
-				<NumberAxis fx:id="xAxis" side="BOTTOM" label="%xAxisLabel" />
+				<NumberAxis label="%xAxisLabel" side="BOTTOM" fx:id="xAxis" />
 			</xAxis>
 			<yAxis>
-				<NumberAxis fx:id="yAxis" side="LEFT" label="%yAxisLabel" />
+				<NumberAxis fx:id="yAxis" label="%yAxisLabel" side="LEFT" />
 			</yAxis>
 		</LineChart>
 	</children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>

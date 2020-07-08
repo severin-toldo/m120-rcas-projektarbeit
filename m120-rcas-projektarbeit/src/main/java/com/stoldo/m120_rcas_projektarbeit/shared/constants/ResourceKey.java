@@ -10,7 +10,15 @@ public enum ResourceKey {
 	Y_AXIS_LABLE("yAxisLabel"),
 	REQUIRED_ERROR_MSG("requiredErrorMsg"),
 	MIN_MAX_ERROR_MSG("minMaxErroMsg"),
-	UPLOAD_IMAGE("uploadImage");
+	UPLOAD_IMAGE("uploadImage"),
+	SAVE("save"),
+	CORNER_WEIGHT_FRONT_LEFT("cornerWeightFrontLeft"),
+	CORNER_WEIGHT_FRONT_RIGHT("cornerWeightFrontRight"),
+	CORNER_WEIGHT_REAR_LEFT("cornerWeightRearLeft"),
+	CORNER_WEIGHT_REAR_RIGHT("cornerWeightRearRight"),
+	ADD_RACE_CAR("addRaceCar"),
+	EDIT_RACE_CAR("editRaceCar");
+
 	
 	@Getter
 	private String key;
