@@ -15,8 +15,7 @@ public class AddRaceCarViewController extends AbstractRaceCarViewController  {
 
 	@Override
 	protected Pane getExtraPane() {
-		imageUploaderComponent.setStage(getStage());
-		imageUploaderComponent.load();
+		imageUploaderComponent.load(getStage());
 		return imageUploaderComponent.getPane();
 	}
 	

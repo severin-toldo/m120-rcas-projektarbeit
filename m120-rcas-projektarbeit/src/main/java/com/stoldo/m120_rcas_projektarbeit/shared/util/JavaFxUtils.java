@@ -32,10 +32,7 @@ public class JavaFxUtils {
 	
 	public static Stage openSubWindow(AbstractController c, double width, double height, ResourceKey titleKey) {
 		Stage subStage = new Stage();
-		
-		c.setStage(subStage);
-		c.load();
-		
+		c.load(subStage);
 		Scene subScene = new Scene(c.getPane(), width, height);
 		subStage.setScene(subScene);
 		subStage.setTitle(getResourceBundle().getString(titleKey.getKey()));

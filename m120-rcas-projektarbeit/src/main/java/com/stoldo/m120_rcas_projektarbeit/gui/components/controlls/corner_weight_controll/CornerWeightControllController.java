@@ -5,7 +5,7 @@ import com.stoldo.m120_rcas_projektarbeit.gui.components.controlls.input_fields.
 import com.stoldo.m120_rcas_projektarbeit.model.VoidCallable;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.DebounceTime;
-import com.stoldo.m120_rcas_projektarbeit.model.javafx.ValueHolder;
+import com.stoldo.m120_rcas_projektarbeit.model.javafx.FormControll;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.DoubleMinMaxValidator;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.RequiredValidator;
 import com.stoldo.m120_rcas_projektarbeit.shared.util.CommonUtils;
@@ -23,12 +23,8 @@ import javafx.scene.text.Text;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-/**
- * Could be abstracted even more, since it consist of multiple parts. 
- * Since it is used only for corner weight in this project, it wasn't.
- * */
 @Accessors(fluent = true)
-public class CornerWeightControllController extends AbstractController implements ValueHolder<Double> {
+public class CornerWeightControllController extends AbstractController implements FormControll<Double> {
 	
 	@FXML
 	private GridPane gridPane;
@@ -70,7 +66,7 @@ public class CornerWeightControllController extends AbstractController implement
 			}
 		});
 		
-		valueField.load();
+		valueField.load(getStage());
 		valueField
 		.addValidator(new RequiredValidator())
 		.addValidator(new DoubleMinMaxValidator(100.00, 1300.00))

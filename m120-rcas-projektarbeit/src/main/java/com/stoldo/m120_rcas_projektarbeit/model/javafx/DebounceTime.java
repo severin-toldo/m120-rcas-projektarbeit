@@ -11,14 +11,14 @@ public class DebounceTime {
 		return new PauseTransition(Duration.millis(milis));
 	}
 	
-	public static void withDebounceTime(VoidCallable callable, PauseTransition sliderDebounceTime) {
-		sliderDebounceTime.setOnFinished(event -> {
+	public static void withDebounceTime(VoidCallable callable, PauseTransition debounceTime) {
+		debounceTime.setOnFinished(event -> {
 			try {
 				callable.call();
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
 		});
-		sliderDebounceTime.playFromStart();
+		debounceTime.playFromStart();
 	}
 }

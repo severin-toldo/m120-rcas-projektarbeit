@@ -44,7 +44,7 @@ public class EditRaceCarViewController extends AbstractRaceCarViewController {
 
 	@Override
 	protected Pane getExtraPane() {
-		mmmDiagram.load();
+		mmmDiagram.load(getStage());
 		return mmmDiagram.getPane();
 	}
 }

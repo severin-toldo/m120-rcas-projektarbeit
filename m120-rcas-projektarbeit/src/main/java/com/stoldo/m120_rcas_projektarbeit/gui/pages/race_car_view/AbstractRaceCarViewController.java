@@ -24,7 +24,6 @@ public abstract class AbstractRaceCarViewController extends AbstractController {
 	protected GridPane gridPane;
 	
 	protected RaceCar raceCar;
-	
 	protected ResourceBundle resourceBundle = JavaFxUtils.getResourceBundle();
 	protected CornerWeightControllController cwfl;
 	protected CornerWeightControllController cwfr;
@@ -40,7 +39,7 @@ public abstract class AbstractRaceCarViewController extends AbstractController {
 	@Override
 	public void initialize() throws Exception {
 		raceCarNameTextField = new TextInputField();
-		raceCarNameTextField.load();
+		raceCarNameTextField.load(getStage());
 		raceCarNameTextField
 		.setValue(raceCar.getName())
 		.addValidator(new RequiredValidator())
@@ -55,25 +54,25 @@ public abstract class AbstractRaceCarViewController extends AbstractController {
 				resourceBundle.getString(ResourceKey.CORNER_WEIGHT_FRONT_LEFT.getKey()),
 				raceCar.getCornerWeightFL()
 				);
-		cwfl.load();
+		cwfl.load(getStage());
 		
 		cwfr = new CornerWeightControllController(
 				resourceBundle.getString(ResourceKey.CORNER_WEIGHT_FRONT_RIGHT.getKey()),
 				raceCar.getCornerWeightFR()
 				);
-		cwfr.load();
+		cwfr.load(getStage());
 		
 		cwrl = new CornerWeightControllController(
 				resourceBundle.getString(ResourceKey.CORNER_WEIGHT_REAR_LEFT.getKey()),
 				raceCar.getCornerWeightRL()
 				);
-		cwrl.load();
+		cwrl.load(getStage());
 		
 		cwrr = new CornerWeightControllController(
 				resourceBundle.getString(ResourceKey.CORNER_WEIGHT_REAR_RIGHT.getKey()),
 				raceCar.getCornerWeightRR()
 				);
-		cwrr.load();
+		cwrr.load(getStage());
 		
 		gridPane.add(cwfl.getPane(), 0, 1);
 		gridPane.add(cwfr.getPane(), 0, 2);
@@ -102,7 +101,7 @@ public abstract class AbstractRaceCarViewController extends AbstractController {
 		
 		if (isFormValid()) {
 			applyFormValues();
-			RaceCarService.getInstance().addRaceCar(raceCar);
+			RaceCarService.getInstance().saveRaceCar(raceCar);
 			getStage().close();
 		}
 	}

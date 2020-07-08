@@ -27,8 +27,9 @@ public abstract class AbstractController {
 		return StringUtils.replace(getClass().getSimpleName(), "Controller", ".fxml");
 	}
 	
-	public void load() {
+	public void load(Stage stage) {
 		try {
+			this.stage = stage;
 			this.pane = JavaFxUtils.load(this);
 		} catch (Exception e) {
 			throw new RuntimeException(e);

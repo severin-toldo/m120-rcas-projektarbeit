@@ -1,6 +1,6 @@
 package com.stoldo.m120_rcas_projektarbeit.model.javafx;
 
-public interface ValueHolder<T> {
+public interface FormControll<T> {
 	
 	public T getValue();
 	

@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.stoldo.m120_rcas_projektarbeit.model.VoidCallable;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
-import com.stoldo.m120_rcas_projektarbeit.model.javafx.ValueHolder;
+import com.stoldo.m120_rcas_projektarbeit.model.javafx.FormControll;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.Validator;
 import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
@@ -20,7 +20,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Accessors(fluent = true)
-public abstract class InputField<T> extends AbstractController implements ValueHolder<T> {
+public abstract class InputField<T> extends AbstractController implements FormControll<T> {
 	
 	@FXML
 	protected TextField textField;
@@ -95,14 +95,7 @@ public abstract class InputField<T> extends AbstractController implements ValueH
 			addStyle("-fx-focus-color: red");
 		}
 	}
-	
-	public InputField<T> addValidator(Validator validator) {
-		validators.add(validator);
-		return this;
-	}
-	
-	public abstract T getDefaultValue();
-	
+
 	@Override
 	public boolean isValid() {
 		String value = textField.getText();
@@ -110,7 +103,7 @@ public abstract class InputField<T> extends AbstractController implements ValueH
 		
 		for (Validator v : validators) {
 			if (!v.validate(value)) {
-				errorMsg = v.getErrorMsg(JavaFxUtils.getResourceBundle()); // TODO resource bundle via @FXML
+				errorMsg = v.getErrorMsg(JavaFxUtils.getResourceBundle());
 				return false;
 			}
 		}
@@ -140,6 +133,13 @@ public abstract class InputField<T> extends AbstractController implements ValueH
 		if (initialized && onChange != null) {
 			onChange.call();
 		}
+	}
+	
+	public abstract T getDefaultValue();
+	
+	public InputField<T> addValidator(Validator validator) {
+		validators.add(validator);
+		return this;
 	}
 	
 	public InputField<T> setValue(T value) {
