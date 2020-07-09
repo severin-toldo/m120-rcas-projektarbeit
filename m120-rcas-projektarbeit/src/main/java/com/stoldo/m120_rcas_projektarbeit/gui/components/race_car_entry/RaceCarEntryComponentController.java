@@ -52,7 +52,7 @@ public class RaceCarEntryComponentController extends AbstractController {
 	
 	public void openRaceCar() {
 		EditRaceCarViewController c = new EditRaceCarViewController(raceCar);
-		JavaFxUtils.openSubWindow(c, 1300.0, 700.0, ResourceKey.ADD_RACE_CAR);
+		JavaFxUtils.openSubWindow(c, 1300.0, 900.0, ResourceKey.ADD_RACE_CAR);
 	}
 	
 	public void deleteRaceCar() {

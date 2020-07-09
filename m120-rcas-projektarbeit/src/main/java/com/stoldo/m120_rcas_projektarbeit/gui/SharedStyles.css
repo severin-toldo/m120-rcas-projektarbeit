@@ -1,0 +1,18 @@
+/* Globally used colors as variables */
+* {
+   -fx-primary-color: #00AEEF;
+   -fx-secondary-color: #189ac9;
+}
+
+.primary-btn {
+	-fx-text-fill: white;
+	-fx-background-color: -fx-primary-color; 
+}
+
+.primary-btn:hover {
+	-fx-background-color: -fx-secondary-color; 
+}
+
+.background {
+	-fx-background-color: white; 
+}
