@@ -2,7 +2,7 @@ package com.stoldo.m120_rcas_projektarbeit;
 
 import com.stoldo.m120_rcas_projektarbeit.gui.pages.race_cars_overview.RaceCarsOverviewController;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
-import com.stoldo.m120_rcas_projektarbeit.shared.constants.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.constants.TranslationKey;
 import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
 import javafx.application.Application;
@@ -23,7 +23,7 @@ public class RCASApplicationStarter extends Application {
 		Pane mainPane = mainController.getPane();
 		Scene mainScene = new Scene(mainPane, 1600, 1050);
 		primaryStage.centerOnScreen();
-		primaryStage.setTitle(JavaFxUtils.translate(ResourceKey.APPLICATION_TITLE));
+		primaryStage.setTitle(JavaFxUtils.translate(TranslationKey.APPLICATION_TITLE));
 		primaryStage.setScene(mainScene);
 		primaryStage.show();
 	}

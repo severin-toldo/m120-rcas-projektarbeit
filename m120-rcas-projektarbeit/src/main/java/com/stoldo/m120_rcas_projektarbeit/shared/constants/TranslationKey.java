@@ -2,7 +2,7 @@ package com.stoldo.m120_rcas_projektarbeit.shared.constants;
 
 import lombok.Getter;
 
-public enum ResourceKey {
+public enum TranslationKey {
 	
 	APPLICATION_TITLE("applicationTitle"),
 	MMM_CHART_TITLE("mmmChartTitle"),
@@ -28,7 +28,7 @@ public enum ResourceKey {
 	@Getter
 	private String key;
 	
-	private ResourceKey(String key) {
+	private TranslationKey(String key) {
 		this.key = key;
 	}
 }

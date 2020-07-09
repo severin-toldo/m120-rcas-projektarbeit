@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.shared.constants.IconKey;
 import com.stoldo.m120_rcas_projektarbeit.shared.constants.PathConstants;
-import com.stoldo.m120_rcas_projektarbeit.shared.constants.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.constants.TranslationKey;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -35,24 +35,24 @@ public class JavaFxUtils {
 		return (T) fxmlLoader.load();
 	}
 	
-	public static Stage openSubWindow(AbstractController c, double width, double height, ResourceKey titleKey) {
+	public static Stage openSubWindow(AbstractController c, double width, double height, TranslationKey titleTranslationKey) {
 		Stage subStage = new Stage();
 		c.load(subStage);
 		Scene subScene = new Scene(c.getPane(), width, height);
 		subStage.setScene(subScene);
-		subStage.setTitle(getResourceBundle().getString(titleKey.getKey()));
+		subStage.setTitle(getResourceBundle().getString(titleTranslationKey.getKey()));
 		subStage.initModality(Modality.APPLICATION_MODAL);
 		subStage.show();
 		
 		return subStage;
 	}
 	
-	public static String translate(ResourceKey key) {
-		return getResourceBundle().getString(key.getKey());
+	public static String translate(TranslationKey translationKey) {
+		return getResourceBundle().getString(translationKey.getKey());
 	}
 	
-	public static String translate(ResourceKey key, Object... params) {
-		return MessageFormat.format(getResourceBundle().getString(key.getKey()), params);
+	public static String translate(TranslationKey translationKey, Object... params) {
+		return MessageFormat.format(getResourceBundle().getString(translationKey.getKey()), params);
 	}
 	
 	public static ResourceBundle getResourceBundle() {

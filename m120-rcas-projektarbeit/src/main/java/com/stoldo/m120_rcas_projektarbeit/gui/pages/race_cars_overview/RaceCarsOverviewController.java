@@ -8,7 +8,7 @@ import com.stoldo.m120_rcas_projektarbeit.gui.pages.race_car_view.AddRaceCarView
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.model.rcas.RaceCar;
 import com.stoldo.m120_rcas_projektarbeit.service.RaceCarService;
-import com.stoldo.m120_rcas_projektarbeit.shared.constants.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.constants.TranslationKey;
 import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
 import javafx.collections.ListChangeListener;
@@ -52,7 +52,7 @@ public class RaceCarsOverviewController extends AbstractController {
 	
 	public void addRaceCar() {
 		AddRaceCarViewController c = new AddRaceCarViewController();
-		JavaFxUtils.openSubWindow(c, 1300.0, 700.0, ResourceKey.ADD_RACE_CAR);		
+		JavaFxUtils.openSubWindow(c, 1300.0, 700.0, TranslationKey.ADD_RACE_CAR);		
 	}
 	
 	/**

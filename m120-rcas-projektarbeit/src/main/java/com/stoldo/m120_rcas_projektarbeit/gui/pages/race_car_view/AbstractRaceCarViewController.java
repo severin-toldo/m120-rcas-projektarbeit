@@ -8,7 +8,7 @@ import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.model.rcas.RaceCar;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.RequiredValidator;
 import com.stoldo.m120_rcas_projektarbeit.service.RaceCarService;
-import com.stoldo.m120_rcas_projektarbeit.shared.constants.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.constants.TranslationKey;
 import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
 import javafx.fxml.FXML;
@@ -52,25 +52,25 @@ public abstract class AbstractRaceCarViewController extends AbstractController {
 
 		
 		cwfl = new CornerWeightControllController(
-				JavaFxUtils.translate(ResourceKey.CORNER_WEIGHT_FRONT_LEFT),
+				JavaFxUtils.translate(TranslationKey.CORNER_WEIGHT_FRONT_LEFT),
 				raceCar.getCornerWeightFL()
 				);
 		cwfl.load(getStage());
 		
 		cwfr = new CornerWeightControllController(
-				JavaFxUtils.translate(ResourceKey.CORNER_WEIGHT_FRONT_RIGHT),
+				JavaFxUtils.translate(TranslationKey.CORNER_WEIGHT_FRONT_RIGHT),
 				raceCar.getCornerWeightFR()
 				);
 		cwfr.load(getStage());
 		
 		cwrl = new CornerWeightControllController(
-				JavaFxUtils.translate(ResourceKey.CORNER_WEIGHT_REAR_LEFT),
+				JavaFxUtils.translate(TranslationKey.CORNER_WEIGHT_REAR_LEFT),
 				raceCar.getCornerWeightRL()
 				);
 		cwrl.load(getStage());
 		
 		cwrr = new CornerWeightControllController(
-				JavaFxUtils.translate(ResourceKey.CORNER_WEIGHT_REAR_RIGHT),
+				JavaFxUtils.translate(TranslationKey.CORNER_WEIGHT_REAR_RIGHT),
 				raceCar.getCornerWeightRR()
 				);
 		cwrr.load(getStage());

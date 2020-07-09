@@ -8,7 +8,7 @@ import com.stoldo.m120_rcas_projektarbeit.gui.pages.race_car_view.EditRaceCarVie
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.model.rcas.RaceCar;
 import com.stoldo.m120_rcas_projektarbeit.service.RaceCarService;
-import com.stoldo.m120_rcas_projektarbeit.shared.constants.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.constants.TranslationKey;
 import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
 import javafx.fxml.FXML;
@@ -52,17 +52,17 @@ public class RaceCarEntryComponentController extends AbstractController {
 	
 	public void openRaceCar() {
 		EditRaceCarViewController c = new EditRaceCarViewController(raceCar);
-		JavaFxUtils.openSubWindow(c, 1300.0, 900.0, ResourceKey.ADD_RACE_CAR);
+		JavaFxUtils.openSubWindow(c, 1300.0, 900.0, TranslationKey.ADD_RACE_CAR);
 	}
 	
 	public void deleteRaceCar() {
 		Alert alert = new Alert(AlertType.WARNING);
-		alert.setTitle(JavaFxUtils.translate(ResourceKey.DELETE_RACE_CAR));
+		alert.setTitle(JavaFxUtils.translate(TranslationKey.DELETE_RACE_CAR));
 		alert.setHeaderText(null);
-		alert.setContentText(JavaFxUtils.translate(ResourceKey.CONFIRM_DELETE_RACE_CAR));
+		alert.setContentText(JavaFxUtils.translate(TranslationKey.CONFIRM_DELETE_RACE_CAR));
 		
-		ButtonType yesBtn = new ButtonType(JavaFxUtils.translate(ResourceKey.YES), ButtonData.YES);
-		ButtonType cancelBtn = new ButtonType(JavaFxUtils.translate(ResourceKey.CANCEL), ButtonData.CANCEL_CLOSE);
+		ButtonType yesBtn = new ButtonType(JavaFxUtils.translate(TranslationKey.YES), ButtonData.YES);
+		ButtonType cancelBtn = new ButtonType(JavaFxUtils.translate(TranslationKey.CANCEL), ButtonData.CANCEL_CLOSE);
 		alert.getButtonTypes().setAll(cancelBtn, yesBtn);
 		
 		Optional<ButtonType> result = alert.showAndWait();

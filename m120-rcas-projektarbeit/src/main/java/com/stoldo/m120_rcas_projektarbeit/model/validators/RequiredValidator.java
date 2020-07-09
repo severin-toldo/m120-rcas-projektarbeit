@@ -2,7 +2,7 @@ package com.stoldo.m120_rcas_projektarbeit.model.validators;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.stoldo.m120_rcas_projektarbeit.shared.constants.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.constants.TranslationKey;
 import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
 public class RequiredValidator implements Validator {
@@ -14,6 +14,6 @@ public class RequiredValidator implements Validator {
 
 	@Override
 	public String getErrorMsg() {
-		return JavaFxUtils.translate(ResourceKey.REQUIRED_ERROR_MSG);
+		return JavaFxUtils.translate(TranslationKey.REQUIRED_ERROR_MSG);
 	}
 }
