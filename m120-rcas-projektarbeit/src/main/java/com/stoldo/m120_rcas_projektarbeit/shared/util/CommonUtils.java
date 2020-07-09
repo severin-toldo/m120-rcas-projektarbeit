@@ -15,10 +15,11 @@ public class CommonUtils {
 		return Math.round(d * 100.0) / 100.0;
 	}
 	
-	public static void copyFileToImageDir(File srcFile) throws Exception {
+	public static File copyFileToImageDir(File srcFile) throws Exception {
 		String uuid = UUID.randomUUID().toString();
     	File newFile = new File(PathConstants.IMAGE_PATH + File.separator + uuid + "_" + srcFile.getName());
     	FileUtils.copyFile(srcFile, newFile);
+    	return newFile;
 	}
 	
 	public static int getRandomNumberInRange(int min, int max) {

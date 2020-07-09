@@ -2,6 +2,8 @@ package com.stoldo.m120_rcas_projektarbeit.gui.components.race_car_entry;
 
 import java.util.Optional;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.stoldo.m120_rcas_projektarbeit.gui.pages.race_car_view.EditRaceCarViewController;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.model.rcas.RaceCar;
@@ -42,8 +44,10 @@ public class RaceCarEntryComponentController extends AbstractController {
 	public void initialize() throws Exception {
 		raceCarNameText.setText(raceCar.getName());
 		
-		Image img = JavaFxUtils.getImage(raceCar.getImageFileName());
-		raceCarImageView.setImage(img);
+		if (StringUtils.isNotEmpty(raceCar.getImageFileName())) {
+			Image img = JavaFxUtils.getImage(raceCar.getImageFileName());
+			raceCarImageView.setImage(img);	
+		}
 	}
 	
 	public void openRaceCar() {

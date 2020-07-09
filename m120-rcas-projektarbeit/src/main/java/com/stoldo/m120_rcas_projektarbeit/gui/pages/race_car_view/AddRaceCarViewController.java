@@ -1,5 +1,7 @@
 package com.stoldo.m120_rcas_projektarbeit.gui.pages.race_car_view;
 
+import java.io.File;
+
 import com.stoldo.m120_rcas_projektarbeit.gui.components.image_uploader.ImageUploaderComponentController;
 import com.stoldo.m120_rcas_projektarbeit.shared.util.CommonUtils;
 
@@ -24,8 +26,8 @@ public class AddRaceCarViewController extends AbstractRaceCarViewController  {
 		super.applyFormValues();
 		
 		if (imageUploaderComponent.getUploadedFile() != null) {
-			CommonUtils.copyFileToImageDir(imageUploaderComponent.getUploadedFile());
-			raceCar.setImageFileName(imageUploaderComponent.getUploadedFile().getName());	
+			File copiedFile = CommonUtils.copyFileToImageDir(imageUploaderComponent.getUploadedFile());
+			raceCar.setImageFileName(copiedFile.getName());	
 		}
 	}
 }

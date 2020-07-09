@@ -68,14 +68,14 @@ public class JavaFxUtils {
 	}
 	
 	public static Image getImage(File file) throws FileNotFoundException {
-		return getImage(file.getAbsolutePath());
+		return getImage(Paths.get(file.getAbsolutePath()));
 	}
 	
 	private static Image getImage(Path path) throws FileNotFoundException {
 		File f = path.toFile();
 		
 		if (!f.exists() || !f.isFile()) {
-			throw new FileNotFoundException("File " + path + "Doesnt exist!");
+			throw new FileNotFoundException("File " + path + " Doesnt exist!");
 		}
 	    
 	    return new Image(new FileInputStream(f));	
