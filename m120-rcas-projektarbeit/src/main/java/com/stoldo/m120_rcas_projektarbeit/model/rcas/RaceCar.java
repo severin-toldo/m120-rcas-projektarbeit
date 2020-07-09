@@ -14,7 +14,6 @@ import javafx.beans.property.StringProperty;
  */
 public class RaceCar {
 
-	private static String DEFAULT_NAME = "";
 	private static double DEFAULT_TRACK = 1.6;
 	private static double DEFAULT_WHEELBASE = 2.6;
 	private static double DEFAULT_COGHEIGHT = 0.5;
@@ -22,7 +21,7 @@ public class RaceCar {
 
 	
 	private SimpleIntegerProperty id = new SimpleIntegerProperty();
-	private SimpleStringProperty name = new SimpleStringProperty(DEFAULT_NAME); // the name of the car.
+	private SimpleStringProperty name = new SimpleStringProperty();
 	private SimpleDoubleProperty frontTrack = new SimpleDoubleProperty(DEFAULT_TRACK); // front track width of the car in m.
 	private SimpleDoubleProperty rearTrack = new SimpleDoubleProperty(DEFAULT_TRACK); // rear track width of the car in m.
 	private SimpleDoubleProperty wheelbase = new SimpleDoubleProperty(DEFAULT_WHEELBASE); // wheelbase of the car in m.

@@ -18,6 +18,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
+
 public abstract class AbstractRaceCarViewController extends AbstractController {
 
 	@FXML
@@ -51,25 +52,25 @@ public abstract class AbstractRaceCarViewController extends AbstractController {
 
 		
 		cwfl = new CornerWeightControllController(
-				resourceBundle.getString(ResourceKey.CORNER_WEIGHT_FRONT_LEFT.getKey()),
+				JavaFxUtils.translate(ResourceKey.CORNER_WEIGHT_FRONT_LEFT),
 				raceCar.getCornerWeightFL()
 				);
 		cwfl.load(getStage());
 		
 		cwfr = new CornerWeightControllController(
-				resourceBundle.getString(ResourceKey.CORNER_WEIGHT_FRONT_RIGHT.getKey()),
+				JavaFxUtils.translate(ResourceKey.CORNER_WEIGHT_FRONT_RIGHT),
 				raceCar.getCornerWeightFR()
 				);
 		cwfr.load(getStage());
 		
 		cwrl = new CornerWeightControllController(
-				resourceBundle.getString(ResourceKey.CORNER_WEIGHT_REAR_LEFT.getKey()),
+				JavaFxUtils.translate(ResourceKey.CORNER_WEIGHT_REAR_LEFT),
 				raceCar.getCornerWeightRL()
 				);
 		cwrl.load(getStage());
 		
 		cwrr = new CornerWeightControllController(
-				resourceBundle.getString(ResourceKey.CORNER_WEIGHT_REAR_RIGHT.getKey()),
+				JavaFxUtils.translate(ResourceKey.CORNER_WEIGHT_REAR_RIGHT),
 				raceCar.getCornerWeightRR()
 				);
 		cwrr.load(getStage());

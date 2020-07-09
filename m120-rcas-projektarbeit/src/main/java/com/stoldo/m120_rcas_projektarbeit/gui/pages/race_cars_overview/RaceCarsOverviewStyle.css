@@ -1,0 +1,18 @@
+.add-race-car-btn {
+	-fx-text-fill: white;
+	-fx-background-color: #00AEEF; 
+}
+
+.add-race-car-btn:hover {
+	-fx-background-color: #189ac9; 
+}
+
+.main-gridpane {
+	-fx-background-color: white; 
+}
+
+.scroll-pane {
+	-fx-background-color: white; 
+	-fx-background: white;
+}
+

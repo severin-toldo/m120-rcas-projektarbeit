@@ -17,7 +17,12 @@ public enum ResourceKey {
 	CORNER_WEIGHT_REAR_LEFT("cornerWeightRearLeft"),
 	CORNER_WEIGHT_REAR_RIGHT("cornerWeightRearRight"),
 	ADD_RACE_CAR("addRaceCar"),
-	EDIT_RACE_CAR("editRaceCar");
+	EDIT_RACE_CAR("editRaceCar"),
+	RACE_CARS("raceCars"),
+	DELETE_RACE_CAR("deleteRaceCar"),
+	CONFIRM_DELETE_RACE_CAR("confirmDeleteRaceCar"),
+	YES("yes"),
+	CANCEL("cancel");
 
 	
 	@Getter

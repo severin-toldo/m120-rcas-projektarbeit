@@ -10,7 +10,6 @@ import com.stoldo.m120_rcas_projektarbeit.model.VoidCallable;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.AbstractController;
 import com.stoldo.m120_rcas_projektarbeit.model.javafx.FormControll;
 import com.stoldo.m120_rcas_projektarbeit.model.validators.Validator;
-import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -103,7 +102,7 @@ public abstract class InputField<T> extends AbstractController implements FormCo
 		
 		for (Validator v : validators) {
 			if (!v.validate(value)) {
-				errorMsg = v.getErrorMsg(JavaFxUtils.getResourceBundle());
+				errorMsg = v.getErrorMsg();
 				return false;
 			}
 		}

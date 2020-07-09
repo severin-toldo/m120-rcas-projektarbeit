@@ -1,0 +1,25 @@
+.race-car-entry {
+	-fx-border-color: #00AEEF;
+    -fx-border-width: 3;
+    -fx-border-style: solid;
+}
+
+.race-car-entry:hover {
+   -fx-border-color: #189ac9;
+   -fx-border-width: 4;
+}
+
+.delete-race-car-btn {
+	-fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+}
+
+.delete-race-car-btn:hover {
+    -fx-text-fill: #00AEEF;
+}
+
+.delete-race-car-btn:pressed {
+    -fx-text-fill: #189ac9;
+}

@@ -1,9 +1,8 @@
 package com.stoldo.m120_rcas_projektarbeit.model.validators;
 
-import java.text.MessageFormat;
-import java.util.ResourceBundle;
 
 import com.stoldo.m120_rcas_projektarbeit.shared.constants.ResourceKey;
+import com.stoldo.m120_rcas_projektarbeit.shared.util.JavaFxUtils;
 
 import lombok.AllArgsConstructor;
 
@@ -20,7 +19,7 @@ public class DoubleMinMaxValidator implements Validator {
 	}
 
 	@Override
-	public String getErrorMsg(ResourceBundle resourceBundle) {
-		return MessageFormat.format(resourceBundle.getString(ResourceKey.MIN_MAX_ERROR_MSG.getKey()), min, max);
+	public String getErrorMsg() {
+		return JavaFxUtils.translate(ResourceKey.MIN_MAX_ERROR_MSG, min, max);
 	}
 }
