@@ -71,6 +71,8 @@ public class RaceCarsOverviewController extends AbstractController {
 		int colIndex = 0;
 		int rowIndex = 0;
 		
+		raceCars.sort((rc1, rc2) -> rc1.getId().compareTo(rc2.getId()));
+		
 		for (RaceCar rc : raceCars) {
 			if (colIndex == 3) {
 				colIndex = 0;
