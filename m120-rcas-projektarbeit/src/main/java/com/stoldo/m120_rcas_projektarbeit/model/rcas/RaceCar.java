@@ -1,5 +1,10 @@
 package com.stoldo.m120_rcas_projektarbeit.model.rcas;
 
+import com.stoldo.m120_rcas_projektarbeit.model.javafx.FormField;
+import com.stoldo.m120_rcas_projektarbeit.model.javafx.MinMax;
+import com.stoldo.m120_rcas_projektarbeit.model.javafx.Required;
+import com.stoldo.m120_rcas_projektarbeit.shared.constants.TranslationKey;
+
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -14,14 +19,19 @@ import javafx.beans.property.StringProperty;
  */
 public class RaceCar {
 
-	private static double DEFAULT_TRACK = 1.6;
-	private static double DEFAULT_WHEELBASE = 2.6;
-	private static double DEFAULT_COGHEIGHT = 0.5;
-	private static double DEFAULT_FRONTROLLDIST = 0.5;
+	private static final double DEFAULT_TRACK = 1.6;
+	private static final double DEFAULT_WHEELBASE = 2.6;
+	private static final double DEFAULT_COGHEIGHT = 0.5;
+	private static final double DEFAULT_FRONTROLLDIST = 0.5;
 
 	
 	private SimpleIntegerProperty id = new SimpleIntegerProperty();
 	private SimpleStringProperty name = new SimpleStringProperty();
+	
+	
+	@FormField(translationKey = TranslationKey.ADD_RACE_CAR, unit = "")
+	@Required
+	@MinMax(min = 0, max = 0)
 	private SimpleDoubleProperty frontTrack = new SimpleDoubleProperty(DEFAULT_TRACK); // front track width of the car in m.
 	private SimpleDoubleProperty rearTrack = new SimpleDoubleProperty(DEFAULT_TRACK); // rear track width of the car in m.
 	private SimpleDoubleProperty wheelbase = new SimpleDoubleProperty(DEFAULT_WHEELBASE); // wheelbase of the car in m.

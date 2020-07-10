@@ -4,10 +4,7 @@ import com.stoldo.m120_rcas_projektarbeit.shared.constants.TranslationKey;
 
 public @interface FormField {
 	
-	public TranslationKey resourceKey();
-
+	public TranslationKey translationKey();
 	
-	
-	
-
+	public String unit() default "";
 }
